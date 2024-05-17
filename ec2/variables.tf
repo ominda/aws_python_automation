@@ -1,9 +1,13 @@
 variable "project" {}
 variable "env" {}
-# variable "server_count" {}
 variable "ssh_key" {}
 variable "public_subnets" {}
-# variable "private_subnets" {}
-# variable "worker_node_count" {}
-# variable "master_node_count" {}
 variable "vpc_id" {}
+variable "instance_type" {}
+variable "cw_alarm" {}
+variable "comparison_operator" {}
+variable "metric_name" {}
+variable "name_space" {}
+variable "alarm_description" {}
+variable "lambda_function_name" {}
+variable "python_runtime" {}

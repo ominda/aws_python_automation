@@ -29,23 +29,40 @@ variable "v_public_subnets" {
   type = list(string)
 }
 
-# variable "v_private_subnets" {
-#   type = list(string)
-# }
-
 # EC2 variables
-# variable "v_public_accessible_server_count" {
-#   type = number  
-# }
-
+variable "v_ec2_instance_type" {
+  type = string
+}
 variable "v_ssh_key_pair" {
-  type = string  
+  type = string
 }
 
-# variable "v_worker_node_count" {
-#   type = number
-# }
+# Cloud Watch variables
+variable "v_ec2_cw_alarm" {
+  type = string
+}
 
-# variable "v_master_node_count" {
-#   type = number
-# }
+variable "v_ec2_cw_comparison_operator" {
+  type = string
+}
+
+variable "v_ec2_cw_metric_name" {
+  type = string
+}
+
+variable "v_ec2_cw_name_space" {
+  type = string
+}
+
+variable "v_ec2_cw_alarm_description" {
+  type = string
+}
+
+# Lambda variables
+variable "v_ec2_lambda_function_name" {
+  type = string
+}
+
+variable "v_ec2_python_runtime" {
+  type = string
+}
