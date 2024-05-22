@@ -11,6 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "r_cloudwatch_alarm_ec2" {
   alarm_description         = var.alarm_description
   insufficient_data_actions = []
   alarm_actions = [aws_lambda_function.r_auto_scaller_lambda.arn]
+  ok_actions = [aws_lambda_function.r_auto_scaller_lambda.arn]
   dimensions = {
         InstanceId = aws_instance.r_public_ec2_instances.id
       }
@@ -18,7 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "r_cloudwatch_alarm_ec2" {
 
 # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
 # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-resource "aws_cloudwatch_log_group" "r_cloudwatch_loggroup_lambda" {
+resource "aws_cloudwatch_log_group" "r_cloudwatch_loggroup" {
   name              = "/aws/lambda/${local.lambda_function_name}"
   retention_in_days = 3
 }
