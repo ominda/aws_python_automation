@@ -29,9 +29,6 @@ data "aws_iam_policy_document" "d_pd_cloudwatch_policy" {
       "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:PutLogEvents",
-      "ec2:RunInstances",
-      "ec2:DescribeInstances",
-      "ec2:CreateTags"
     ]
 
     resources = ["${aws_cloudwatch_log_group.r_cloudwatch_loggroup.arn}:*"]
