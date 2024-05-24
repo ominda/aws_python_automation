@@ -2,9 +2,9 @@
 
 # vpc module is the only common module. You can't use other modules simultaniously.
 ## As Example
-    **vpc + ec2**
+    vpc + ec2
     or
-    **vpc + autoscaler**
+    vpc + autoscaler
 
 # vpc module
 VPC module contains a VPC, Two public subnets, IGW, Route table
