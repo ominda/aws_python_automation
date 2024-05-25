@@ -1,6 +1,6 @@
 # Construct local variables
 locals {
-  base_name                 = "${var.project}_${var.env}"
+  base_name                 = "${var.project}-${var.env}"
   public_subnets            = var.public_subnets
   launch_template_name      = "${local.base_name}-launch_template"
   asg_sg_name               = "${local.base_name}-asg-SG"
@@ -11,4 +11,7 @@ locals {
   asg_instance_role_name = "${local.base_name}-asg-instanceProfileRole"
   asg_instance_profile_name = "${local.base_name}-asg-SSM-instance-profile"
   asg_instance_name = "${local.base_name}-ec2"
+  alb_name = "${local.base_name}-alb"
+  alb_tg_name = "${local.base_name}-alb-tg"
+  alb_sg_name = "${local.base_name}-alb-SG"
 }

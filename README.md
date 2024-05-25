@@ -16,4 +16,4 @@ Using Lamba, Cloudwatch and Python.
 
 # autoscaler module
 Automatically scale (out or in) depends on EC2 instance CPU utilization.
-Using ASG, ASG policy, Cloudwatch alarm, Launch Template
+Using ASG, ASG policy, Cloudwatch alarm, Launch Template, ALB

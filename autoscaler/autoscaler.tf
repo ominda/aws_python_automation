@@ -21,10 +21,7 @@ resource "aws_launch_template" "r_app_launch_template" {
     }
   }
   
-#   instance_initiated_shutdown_behavior = terminate
-
-  # Security group
-#   vpc_security_group_ids = [aws_security_group.r_launch_template_sg.id]
+  # instance_initiated_shutdown_behavior = terminate
 
   # User data to install your application
   user_data = base64encode(file("${path.module}/scripts/startup_script.sh"))
@@ -41,11 +38,14 @@ resource "aws_autoscaling_group" "r_autoscaling_group" {
   }
 
   # Target the VPC subnets where your instances will be launched
-  vpc_zone_identifier = [local.public_subnets["public_subnet-01"]]
+  # vpc_zone_identifier = [local.public_subnets["public_subnet-01"]]
+  vpc_zone_identifier = [ for subnet in var.public_subnets : subnet ]
 
   # Health check
-  health_check_type         = "EC2"
+  health_check_type         = "ELB"
   health_check_grace_period = 180
+
+  target_group_arns = [aws_lb_target_group.r_app_alb_tg.arn]
 }
 
 # Create ASG policy
